@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <base href="." target="_blank">
-    <title>{{ name }} Embed Tool</title>
-    <link rel="stylesheet" href="{{ path }}/main.css" />
-</head>
+    <head>
+        <base href="." target="_blank">
+        <title>Guardian US Illustrator List</title>
+        <link rel="stylesheet" href="{{ path }}/main.css" />
+    </head>
 
-<body>
-    <div class='uit'>
-        {{> partials/header }}
-        {{> partials/body }}
-    </div>
+    <body>
+        <div class='uit'>
+            {{> partials/header }}
 
-    <script async src='{{ path }}/app.js'></script>
-</body>
+            <div class='uit-container'>
+                <ul class='uit-illustrators'>
+                    {{#each illustrators}}
+                        {{> partials/illustrator }}
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
 
+        <script async src='{{ path }}/app.js'></script>
+    </body>
 </html>

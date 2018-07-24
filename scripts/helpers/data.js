@@ -28,7 +28,7 @@ function fetchData(callback) {
 
 function setSheetNames(data) {
     data = {
-        'events': data[0]
+        'illustrators': data[0]
     }
 
     return data;

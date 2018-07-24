@@ -1,0 +1,23 @@
+<li id='{{ handlise name }}' class='uit-illustrator'>
+    <div class='uit-illustrator__details'>
+        <h2 class='uit-illustrator__name'>
+            <span class='uit-illustrator__name__inner'>{{{ name }}}</span>
+        </h2>
+
+        <div class='uit-illustrator__description'>
+            {{{ marked description }}}
+
+            <p class='uit-illustrator__tag'><span>Speed</span> {{ turnaround }}<br /><span>Cost</span> {{ cost }}</p>
+        </div>
+
+        <a class='uit-illustrator__button' href='{{ website }}'>
+            Visit Portfolio
+            {{> icons/forward }}
+        </a>
+
+        <a class='uit-illustrator__button' href='mailto:{{ contact }}'>
+            Contact
+            {{> icons/forward }}
+        </a>
+    </div>
+</li>

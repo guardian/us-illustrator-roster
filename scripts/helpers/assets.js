@@ -63,7 +63,9 @@ module.exports = {
         });
 
         handlebars.registerHelper('marked', function(string) {
-            return markdown.toHTML(string);
+            if (string) {
+                return markdown.toHTML(string);
+            }
         });
 
         handlebars.registerHelper('inc', function(value, options) {
@@ -90,6 +92,10 @@ module.exports = {
          } else {
            return options.inverse(this);
          }
+        });
+
+        handlebars.registerHelper('handlise', function(string) {
+            return string.replace(' ', '-').toLowerCase();
         });
 
         handlebars.registerHelper('if_odd', function(conditional, options) {
