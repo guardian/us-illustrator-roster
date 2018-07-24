@@ -1,0 +1,14 @@
+{
+    "data": {
+        "id": ""
+    },
+    "local": {
+        "url": "http://localhost",
+        "port": 8080
+    },
+    "remote": {
+        "url": "https://interactive.guim.co.uk",
+        "path": "atoms/2018/01/us-interactive-template",
+        "bucket": "gdn-cdn"
+    }
+}

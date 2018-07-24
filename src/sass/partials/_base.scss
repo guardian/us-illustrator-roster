@@ -1,0 +1,56 @@
+.uit {
+    overflow: hidden;
+    background-color: $c-white;
+}
+
+.uit-container {
+    position: relative;
+    margin: 0 auto;
+    padding: 0 10px;
+    box-sizing: border-box;
+
+    @include mq(mobileLandscape) {
+        padding: 0 20px;
+    }
+
+    @include mq(tablet) {
+        max-width: 740px;
+    }
+
+    @include mq(desktop) {
+        max-width: 980px;
+    }
+
+    @include mq(leftCol) {
+        max-width: 1140px;
+    }
+
+    @include mq(wide) {
+        max-width: 1300px;
+    }
+}
+
+.uit-content {
+    position: relative;
+    max-width: 620px;
+
+    @include mq(leftCol) {
+        margin-left: 140px;
+    }
+
+    @include mq(wide) {
+        margin-left: 220px;
+    }
+
+    &:before {
+        @include mq(leftCol) {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: -10px;
+            width: 1px;
+            background-color: $c-light-grey;
+        }
+    }
+}
