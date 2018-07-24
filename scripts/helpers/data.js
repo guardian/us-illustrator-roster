@@ -28,7 +28,22 @@ function fetchData(callback) {
 
 function setSheetNames(data) {
     data = {
-        'illustrators': data[0]
+        'illustrators': data[0],
+        'images': data[1]
+    }
+
+    return data;
+}
+
+function injectImagesIntoIllustrators(data) {
+    for (var i in data.illustrators) {
+        data.illustrators[i].images = [];
+
+        for (var image in data.images) {
+            if (data.images[image].name === data.illustrators[i].name) {
+                data.illustrators[i].images.push(data.images[image]);
+            }
+        }
     }
 
     return data;
@@ -40,6 +55,7 @@ module.exports = function getData() {
     fetchData(function(result) {
         data = result;
         data = setSheetNames(data);
+        data = injectImagesIntoIllustrators(data);
 
         isDone = true;
     });

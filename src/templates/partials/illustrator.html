@@ -20,4 +20,10 @@
             {{> icons/forward }}
         </a>
     </div>
+
+    <div class='uit-illustrator__images'>
+        {{#each images}}
+            <img class='uit-illustrator__image' src='{{ url }}' />
+        {{/each}}
+    </div>
 </li>
