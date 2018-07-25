@@ -41,7 +41,9 @@ if (specs.modified === 'html') {
     assets.static(path);
 }
 
-if (specs.deploy) {
+if (specs.deploy === false) {
+    assets.preview(path, specs.deploy, data.path);
+} else if (specs.deploy) {
     fs.emptyDirSync('.deploy');
     fs.copySync(path, '.deploy/' + version);
     fs.writeFileSync('.deploy/' + specs.build, version);

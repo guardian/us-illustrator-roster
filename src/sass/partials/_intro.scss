@@ -1,0 +1,62 @@
+.uit-content {
+    margin-left: 320px;
+    width: 620px;
+
+    p {
+        font-family: 'Guardian Text Egyptian Web';
+        font-size: 20px;
+        line-height: 1.4;
+        margin: 0;
+        margin-bottom: 1.5em;
+    }
+
+    ul {
+        margin: 0;
+        margin-bottom: 30px;
+        padding: 0;
+        list-style: none;
+    }
+
+    li {
+        position: relative;
+        font-family: 'Guardian Text Egyptian Web';
+        font-size: 20px;
+        line-height: 1.4;
+        padding-left: 1.2em;
+        margin-bottom: 6px;
+
+        &:after {
+            content: '';
+            position: absolute;
+            top: .2em;
+            left: 0;
+            width: .9em;
+            height: .9em;
+            border-radius: .45em;
+            background-color: $c-yellow;
+        }
+    }
+
+    a {
+        color: $c-black;
+        text-decoration: none;
+        border-bottom: 1px solid $c-yellow;
+        transition: color 0.3s linear;
+
+        &:hover {
+            color: $c-yellow;
+            text-decoration: none;
+        }
+    }
+}
+
+.uit-header__title {
+    font-family: 'Guardian Figures';
+    font-size: 72px;
+    line-height: 1;
+    font-weight: normal;
+    color: $c-black;
+    max-width: 620px;
+    margin-top: 240px;
+    margin-bottom: 12px;
+}

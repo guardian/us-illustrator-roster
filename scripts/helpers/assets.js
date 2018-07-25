@@ -52,7 +52,7 @@ module.exports = {
     },
 
     html: function(path, data) {
-        fs.removeSync(path + '/index.html');
+        fs.removeSync(path + '/main.html');
 
         handlebars.registerHelper('if_eq', function(a, b, opts) {
             if (a == b) {
@@ -110,7 +110,7 @@ module.exports = {
             return (index + 2) / 2;
         });
 
-        var html = fs.readFileSync('src/templates/index.html', 'utf8');
+        var html = fs.readFileSync('src/templates/main.html', 'utf8');
         var template = handlebars.compile(html);
 
         var partials = glob.readdirSync('src/templates/**/*.*');
@@ -122,7 +122,7 @@ module.exports = {
             handlebars.registerPartial(name, template);
         });
 
-        fs.writeFileSync(path + '/index.html', template(data));
+        fs.writeFileSync(path + '/main.html', template(data));
         console.log('Updated html!');
     },
 
@@ -131,5 +131,24 @@ module.exports = {
         fs.mkdirsSync(path + '/assets');
         fs.copySync('src/assets', path + '/assets');
         console.log('Updated static assets');
+    },
+
+    preview: function(path, isDeploy, assetPath) {
+        var guardianHtml = fs.readFileSync('./scripts/immersive.html', 'utf8');
+        var guardianTemplate = handlebars.compile(guardianHtml);
+
+        var compiled = guardianTemplate({
+            'html': fs.readFileSync(path + '/main.html'),
+            'js': fs.readFileSync(path + '/main.js')
+        });
+
+        if (isDeploy) {
+            var re = new RegExp(assetPath,'g');
+            compiled = compiled.replace(re, 'assets');
+        }
+
+        fs.writeFileSync(path + '/index.html', compiled);
+
+        console.log('Built page preview');
     }
 } 
