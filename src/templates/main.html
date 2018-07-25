@@ -1,24 +1,11 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <base href="." target="_blank">
-        <title>Guardian US Illustrator List</title>
-        <link rel="stylesheet" href="{{ path }}/main.css" />
-    </head>
+<div class='uit'>
+    {{> partials/intro }}
 
-    <body>
-        <div class='uit'>
-            {{> partials/intro }}
-
-            <div class='uit-container'>
-                <ul class='uit-illustrators'>
-                    {{#each illustrators}}
-                        {{> partials/illustrator }}
-                    {{/each}}
-                </ul>
-            </div>
-        </div>
-
-        <script async src='{{ path }}/app.js'></script>
-    </body>
-</html>
+    <div class='uit-container'>
+        <ul class='uit-illustrators'>
+            {{#each illustrators}}
+                {{> partials/illustrator }}
+            {{/each}}
+        </ul>
+    </div>
+</div>
